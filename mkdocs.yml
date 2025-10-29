@@ -4,6 +4,9 @@ nav:
   - Instruções mkdocs: "index.md"
   - Atas de Reunião:
     - Ata 1: "atas-reuniao/ata-reuniao-1.md"
-
+  - Arquitetura :
+    - Arquitetura do Sistema: "arquitetura/arquitetura.md"
+  - Visao :
+    - Visao Geral: "visao/visao-geral.md"
 theme:
   name: material

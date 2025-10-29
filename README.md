@@ -1,23 +1,22 @@
-# template-repository - Branch DOCS
+# 📖 Guia de Configuração do Repositório de Documentação (MkDocs)
 
-Template de Repositório para a matéria de Métodos de Desenvolvimento de Software lecionado pelo professor Ricardo Ajax.
+Este guia padroniza o ambiente de desenvolvimento para a documentação, garantindo que todos os membros da equipe possam editar, visualizar e publicar o conteúdo Markdown usando o MkDocs.
 
-Essa Branch de desenvolvimento "docs" deve ser mantida somente para fins de documentação, onde já se encontra uma estrutura inicial montada com MKDocs.
+## 1. ⚙️ Pré-Requisitos
 
-## Especificações Técnicas do Repositório
+Antes de começar, certifique-se de que você tem:
 
-Este repositório é planejado e estruturado para que seja realizado documentações de software. Caso haja outra necessidades, deve-se consultar a professora.
+* **Python 3:** Instalado e no seu `PATH`.
+* **Git:** Instalado.
 
-Atualmente se usa a ferramenta MkDocs para gerar sua documentação baseado nos seus arquivos markdowns, vocês podem achar mais instruções sobre o MkDocs através do link da documentação da ferramenta: [https://www.mkdocs.org/](https://www.mkdocs.org/).
+## 2. 🐍 Configuração do Ambiente Python (Venv)
 
-Também é usado uma "sub-ferramenta" do MkDocs para sua estilização, o Material Theme, que pode ser consultado através do link: [https://squidfunk.github.io/mkdocs-material/](https://squidfunk.github.io/mkdocs-material/).
+É fundamental isolar as dependências da documentação usando um Ambiente Virtual (`venv`).
 
-Este repositório também conta com uma pipeline de automatização de deploy do seu conteúdo MkDocs, para que a cada commit feito na main, a pipeline gere uma versão atualizada da sua documentação em minutos. Vale ressaltar que é importante realizar uma configuração para que tudo funcione da forma correta, as instruções são as seguintes:
+### 2.1. Criação do Venv
 
-* Acesse as configurações do repositório;
-* Procure a aba de "Pages"
-* Em "Source" escolha a opção "Deploy from a branch";
-* Em "Branch" escolha "gh-pages";
-* Clique em salvar e pronto;
+Abra o terminal na raiz do repositório (`2025.2-Ganesha-Docs`) e execute:
 
-Após essas etapas de configuração, o seu GitPages deve funcionar normalmente.
+```bash
+# Cria a pasta 'venv' para isolamento
+python -m venv venv
