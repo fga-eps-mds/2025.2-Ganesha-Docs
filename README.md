@@ -2,6 +2,8 @@
 
 Este guia padroniza o ambiente de desenvolvimento, garantindo que todos os membros da equipe possam editar, visualizar e publicar o conteúdo Markdown usando o **MkDocs com o tema Material**.
 
+Link do site: https://fga-eps-mds.github.io/2025.2-Ganesha-Docs
+
 ## 1\. ⚙️ Pré-Requisitos
 
 Certifique-se de ter instalado no seu sistema:
@@ -40,27 +42,29 @@ python3 -m venv venv
 
 Com o ambiente virtual **ativo** (`(venv)` visível), instale as bibliotecas necessárias.
 
-### 3.1. Instalação para o Primeiro Desenvolvedor (Criação do `requirements.txt`)
+### 3.1. Instalação (Primeiro Desenvolvedor e Demais)
 
-Se o arquivo **`requirements.txt` NÃO existir** no repositório, use estes comandos.
+O repositório deve ter um arquivo **`requirements.txt`** contendo apenas as dependências principais (`mkdocs` e `mkdocs-material`).
 
 > **Nota:** Usamos `python -m pip` para garantir que o **pip correto** do ambiente virtual seja chamado, evitando o erro `externally-managed-environment`.
 
-```bash
-# 1. Instala MkDocs e o tema Material (e outras extensões)
-(venv) $ python -m pip install mkdocs mkdocs-material
+**Se o arquivo `requirements.txt` já existir no repositório:**
 
-# 2. Cria o arquivo requirements.txt para o restante da equipe
-(venv) $ pip freeze > requirements.txt
+```bash
+# Instala todas as dependências principais e suas sub-dependências.
+(venv) $ python -m pip install -r requirements.txt
 ```
 
-### 3.2. Instalação para o Restante da Equipe
-
-Se o arquivo **`requirements.txt` JÁ existir** no repositório:
+**Se o arquivo `requirements.txt` NÃO existir:**
 
 ```bash
-# Instala todas as dependências listadas no arquivo requirements.txt
-(venv) $ python -m pip install -r requirements.txt
+# 1. Instala o MkDocs e o tema Material (e outras extensões necessárias)
+(venv) $ python -m pip install mkdocs mkdocs-material mkdocs-get-deps==0.2.0
+
+# 2. CRIA o arquivo requirements.txt com APENAS as dependências principais:
+(venv) $ echo "mkdocs" > requirements.txt
+(venv) $ echo "mkdocs-material" >> requirements.txt
+(venv) $ echo "mkdocs-get-deps==0.2.0" >> requirements.txt
 ```
 
 -----
