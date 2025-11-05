@@ -100,7 +100,7 @@ Depois de verificar a documentação localmente e garantir que está pronta para
 Este comando gera o site HTML final e o envia para a *branch* de publicação (`gh-pages`).
 
 ```bash
-(venv) $ mkdocs gh-deploy
+(venv) $ python -m mkdocs gh-deploy --force
 ```
 
 ### 5.2. Comitar o Conteúdo Fonte (Markdown)

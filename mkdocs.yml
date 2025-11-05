@@ -8,6 +8,9 @@ nav:
     - Ata 3: "atas-reuniao/ata-reuniao-3.md"
   - Arquitetura :
     - Arquitetura do Sistema: "arquitetura/arquitetura.md"
+    - Banco de Dados:  "arquitetura/banco-de-dados.md"
+    - Git-Flow: "arquitetura/git-flow.md"
+    - Conventional Commits: "arquitetura/conventional-commits.md"
   - Visao :
     - Visao Geral: "visao/visao-geral.md"
 theme:
