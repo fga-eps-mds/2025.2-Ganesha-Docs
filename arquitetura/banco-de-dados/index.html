@@ -1,0 +1,1211 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../arquitetura/">
+      
+      
+        <link rel="next" href="../git-flow/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>Banco de Dados - Documentação</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#guia-de-configuracao-e-desenvolvimento-local" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Documentação" class="md-header__button md-logo" aria-label="Documentação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentação
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Banco de Dados
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Documentação" class="md-nav__button md-logo" aria-label="Documentação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Documentação
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Instruções mkdocs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Atas de Reunião
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Atas de Reunião
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/ata-reuniao-1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ata 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/ata-reuniao-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ata 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atas-reuniao/ata-reuniao-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ata 3
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Arquitetura
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Arquitetura
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arquitetura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arquitetura do Sistema
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Banco de Dados
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Banco de Dados
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pre-requisitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Pré-requisitos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passo-1-configuracao-do-ambiente-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Passo 1: Configuração do Ambiente Python
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Passo 1: Configuração do Ambiente Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-clonar-o-repositorio-e-navegar" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Clonar o Repositório e Navegar
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-criar-e-ativar-o-ambiente-virtual-venv" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Criar e Ativar o Ambiente Virtual (venv)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-instalar-as-dependencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Instalar as Dependências
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-configurar-variaveis-de-ambiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Configurar Variáveis de Ambiente
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passo-2-inicializacao-do-banco-de-dados-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Passo 2: Inicialização do Banco de Dados (Docker)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Passo 2: Inicialização do Banco de Dados (Docker)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-rodar-o-conteiner-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Rodar o Contêiner MySQL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-verificar-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Verificar Status
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passo-3-criacao-e-sincronizacao-das-tabelas-flask-migrate" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Passo 3: Criação e Sincronização das Tabelas (Flask-Migrate)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Passo 3: Criação e Sincronização das Tabelas (Flask-Migrate)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-definir-a-variavel-flask_app-obrigatorio-no-powershell" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Definir a Variável FLASK_APP (Obrigatório no PowerShell)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-aplicar-migracoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Aplicar Migrações
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passo-4-rodar-o-servidor-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Passo 4: Rodar o Servidor Local
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fluxo-de-trabalho-de-alteracao-de-banco-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Fluxo de Trabalho de Alteração de Banco de Dados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passo-5-visualizacao-do-banco-de-dados-mysql-workbench" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Passo 5: Visualização do Banco de Dados (MySQL Workbench)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Passo 5: Visualização do Banco de Dados (MySQL Workbench)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-inicie-o-mysql-workbench" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Inicie o MySQL Workbench
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-crie-uma-nova-conexao" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Crie uma Nova Conexão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-preencha-os-campos-da-conexao" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Preencha os Campos da Conexão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-testar-e-conectar" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Testar e Conectar
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git-Flow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conventional-commits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Conventional Commits
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Visao
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Visao
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visao/visao-geral/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visao Geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pre-requisitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Pré-requisitos
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passo-1-configuracao-do-ambiente-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Passo 1: Configuração do Ambiente Python
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Passo 1: Configuração do Ambiente Python">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-clonar-o-repositorio-e-navegar" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Clonar o Repositório e Navegar
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-criar-e-ativar-o-ambiente-virtual-venv" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Criar e Ativar o Ambiente Virtual (venv)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-instalar-as-dependencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Instalar as Dependências
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-configurar-variaveis-de-ambiente" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Configurar Variáveis de Ambiente
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passo-2-inicializacao-do-banco-de-dados-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Passo 2: Inicialização do Banco de Dados (Docker)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Passo 2: Inicialização do Banco de Dados (Docker)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-rodar-o-conteiner-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Rodar o Contêiner MySQL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-verificar-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Verificar Status
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passo-3-criacao-e-sincronizacao-das-tabelas-flask-migrate" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Passo 3: Criação e Sincronização das Tabelas (Flask-Migrate)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Passo 3: Criação e Sincronização das Tabelas (Flask-Migrate)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-definir-a-variavel-flask_app-obrigatorio-no-powershell" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Definir a Variável FLASK_APP (Obrigatório no PowerShell)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-aplicar-migracoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Aplicar Migrações
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passo-4-rodar-o-servidor-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Passo 4: Rodar o Servidor Local
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fluxo-de-trabalho-de-alteracao-de-banco-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Fluxo de Trabalho de Alteração de Banco de Dados
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passo-5-visualizacao-do-banco-de-dados-mysql-workbench" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔹 Passo 5: Visualização do Banco de Dados (MySQL Workbench)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔹 Passo 5: Visualização do Banco de Dados (MySQL Workbench)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-inicie-o-mysql-workbench" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Inicie o MySQL Workbench
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-crie-uma-nova-conexao" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Crie uma Nova Conexão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-preencha-os-campos-da-conexao" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Preencha os Campos da Conexão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-testar-e-conectar" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Testar e Conectar
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="guia-de-configuracao-e-desenvolvimento-local">🚀 Guia de Configuração e Desenvolvimento Local</h1>
+<p>Este guia descreve os passos necessários para configurar o ambiente de desenvolvimento local (<strong>Backend Python/Flask</strong>) e iniciar o servidor de banco de dados <strong>MySQL</strong> usando <strong>Docker</strong>.</p>
+<hr />
+<h2 id="pre-requisitos">✅ Pré-requisitos</h2>
+<p>Certifique-se de ter instalado em sua máquina:</p>
+<ul>
+<li><strong>Python 3.10+</strong></li>
+<li><strong>Git</strong></li>
+<li><strong>Docker Desktop</strong> (para Windows/macOS) ou <strong>Docker Engine</strong> (para Linux)</li>
+<li><strong>MySQL Workbench</strong> ou outro cliente SQL (opcional, para visualização do DB).</li>
+</ul>
+<hr />
+<h2 id="passo-1-configuracao-do-ambiente-python">🔹 Passo 1: Configuração do Ambiente Python</h2>
+<h3 id="1-clonar-o-repositorio-e-navegar">1. Clonar o Repositório e Navegar</h3>
+<pre><code class="language-bash">git clone https://github.com/fga-eps-mds/2025.2-ganesha
+cd 2025.2-Ganesha/
+</code></pre>
+<hr />
+<h3 id="2-criar-e-ativar-o-ambiente-virtual-venv">2. Criar e Ativar o Ambiente Virtual (venv)</h3>
+<p>Execute os comandos na raiz do projeto (<code>2025.2-Ganesha/</code>):</p>
+<pre><code class="language-powershell"># Cria o ambiente virtual
+python -m venv venv
+
+# Ativa o ambiente virtual (PowerShell)
+.\venv\Scripts\Activate.ps1
+</code></pre>
+<hr />
+<h3 id="3-instalar-as-dependencias">3. Instalar as Dependências</h3>
+<p>Instale todas as bibliotecas necessárias para o backend:</p>
+<pre><code class="language-powershell">(venv) PS ...&gt; python -m pip install -r backend/requirements.txt
+</code></pre>
+<hr />
+<h3 id="4-configurar-variaveis-de-ambiente">4. Configurar Variáveis de Ambiente</h3>
+<p>Copie o arquivo de exemplo (<code>.env.example</code>) para criar seu arquivo de ambiente local (<code>.env</code>) e preencha as credenciais:</p>
+<pre><code class="language-powershell">(venv) PS ...&gt; copy .env.example .env
+</code></pre>
+<p>Verifique se seu <code>.env</code> contém as seguintes chaves:</p>
+<pre><code class="language-env"># ...
+DB_HOST=127.0.0.1
+DB_PORT=3307  # Porta mapeada do Docker
+DB_NAME=ganesha_db # O nome do DB que será criado
+DB_USER=root
+DB_PASSWORD=ganesha123
+FLASK_APP=backend/src/app # Necessário para o comando 'flask'
+# ...
+</code></pre>
+<hr />
+<h2 id="passo-2-inicializacao-do-banco-de-dados-docker">🔹 Passo 2: Inicialização do Banco de Dados (Docker)</h2>
+<p>O servidor MySQL rodará como um contêiner isolado na porta <strong>3307</strong>.</p>
+<h3 id="1-rodar-o-conteiner-mysql">1. Rodar o Contêiner MySQL</h3>
+<p>Execute este comando na raiz do projeto para iniciar o contêiner e criar o banco de dados inicial (<code>ganesha_db</code>):</p>
+<pre><code class="language-powershell">docker run --name ganesha-mysql `
+  -e MYSQL_ROOT_PASSWORD=ganesha123 `
+  -e MYSQL_DATABASE=ganesha_db `
+  -p 3307:3306 `
+  -d mysql:8.0
+</code></pre>
+<hr />
+<h3 id="2-verificar-status">2. Verificar Status</h3>
+<p>Confirme se o contêiner está rodando:</p>
+<pre><code class="language-powershell">docker ps
+</code></pre>
+<p>O status de <code>ganesha-mysql</code> deve ser <strong>Up ...</strong>.</p>
+<hr />
+<h2 id="passo-3-criacao-e-sincronizacao-das-tabelas-flask-migrate">🔹 Passo 3: Criação e Sincronização das Tabelas (Flask-Migrate)</h2>
+<h3 id="1-definir-a-variavel-flask_app-obrigatorio-no-powershell">1. Definir a Variável FLASK_APP (Obrigatório no PowerShell)</h3>
+<pre><code class="language-powershell">$env:FLASK_APP=&quot;backend/src/app&quot;
+</code></pre>
+<hr />
+<h3 id="2-aplicar-migracoes">2. Aplicar Migrações</h3>
+<p>Execute o comando <strong>upgrade</strong> para criar as tabelas no seu <code>ganesha_db</code>.</p>
+<blockquote>
+<p><strong>Nota:</strong> O <code>db init</code> e o <code>db migrate</code> são passos que você executa apenas ao criar ou alterar modelos. O <code>db upgrade</code> é a sua rotina pós-<code>git pull</code>.</p>
+</blockquote>
+<pre><code class="language-powershell">(venv) PS ...&gt; python -m flask db upgrade
+</code></pre>
+<p><strong>Saída esperada:</strong> Confirmação de que a(s) migração(ões) pendente(s) foram executadas, e as tabelas agora existem no DB.</p>
+<hr />
+<h2 id="passo-4-rodar-o-servidor-local">🔹 Passo 4: Rodar o Servidor Local</h2>
+<p>Com o DB configurado e as tabelas criadas, você pode iniciar o backend:</p>
+<pre><code class="language-powershell">(venv) PS ...&gt; python backend/src/app.py
+</code></pre>
+<p>O servidor estará rodando em:</p>
+<pre><code>http://127.0.0.1:5000/
+</code></pre>
+<hr />
+<h2 id="fluxo-de-trabalho-de-alteracao-de-banco-de-dados">🔄 Fluxo de Trabalho de Alteração de Banco de Dados</h2>
+<p>Sempre que você (ou um colega) adicionar ou alterar um modelo (tabela/coluna), siga estes passos:</p>
+<ol>
+<li><strong>Mudar o Código:</strong> Modificar a classe <code>Usuario</code> (ou criar uma nova) em <code>backend/src/model/</code>.</li>
+<li><strong>Gerar Migração:</strong><br />
+<code>powershell
+   python -m flask db migrate -m "Descrição da mudança"</code></li>
+<li><strong>Aplicar Migração:</strong><br />
+<code>powershell
+   python -m flask db upgrade</code></li>
+</ol>
+<hr />
+<h2 id="passo-5-visualizacao-do-banco-de-dados-mysql-workbench">🔹 Passo 5: Visualização do Banco de Dados (MySQL Workbench)</h2>
+<p>Para visualizar e inspecionar as tabelas criadas (como <code>usuario</code> e <code>alembic_version</code>), configure uma nova conexão:</p>
+<h3 id="1-inicie-o-mysql-workbench">1. Inicie o MySQL Workbench</h3>
+<h3 id="2-crie-uma-nova-conexao">2. Crie uma Nova Conexão</h3>
+<p>Clique no sinal <strong>+</strong> (mais) ao lado de <strong>MySQL Connections</strong>.</p>
+<h3 id="3-preencha-os-campos-da-conexao">3. Preencha os Campos da Conexão</h3>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Connection Name</td>
+<td>Ganesha Local Docker</td>
+</tr>
+<tr>
+<td>Connection Method</td>
+<td>Standard (TCP/IP)</td>
+</tr>
+<tr>
+<td>Hostname</td>
+<td>127.0.0.1</td>
+</tr>
+<tr>
+<td>Port</td>
+<td>3307</td>
+</tr>
+<tr>
+<td>Username</td>
+<td>root</td>
+</tr>
+<tr>
+<td>Password</td>
+<td>ganesha123</td>
+</tr>
+<tr>
+<td>Default Schema</td>
+<td>ganesha_db</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="4-testar-e-conectar">4. Testar e Conectar</h3>
+<p>Clique em <strong>Test Connection</strong>.<br />
+Após o sucesso, clique em <strong>OK</strong> para salvar a conexão.<br />
+Abra a conexão e navegue no schema <code>ganesha_db</code> para ver as tabelas.</p>
+<hr />
+<p>✅ Agora seu ambiente está pronto para desenvolvimento!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
